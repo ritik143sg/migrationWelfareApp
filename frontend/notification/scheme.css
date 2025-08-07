@@ -1,0 +1,28 @@
+.excel-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  width: 90%;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.excel-row {
+  display: flex;
+}
+
+.excel-cell {
+  border: 1px solid #ccc;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+  background-color: #fff;
+  word-wrap: break-word;
+  flex: 1;
+}
+
+.excel-row.header .excel-cell {
+  background-color: #d9ead3;
+  font-weight: bold;
+  color: #000;
+}

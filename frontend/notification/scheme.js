@@ -1,0 +1,104 @@
+const verify = document.getElementById("verify");
+
+const logout = document.getElementById("logout");
+
+const addComplain = document.getElementById("addComplain");
+
+const mobile = document.getElementById("mobile");
+
+const profile = document.getElementById("profile");
+
+const img = document.getElementById("img");
+
+img.addEventListener("click", () => {
+  window.location.href = "../notification/notification.html";
+});
+
+profile.addEventListener("click", () => {
+  window.location.href = "../profile/profile.html";
+});
+
+logout.addEventListener("click", () => {
+  window.location.href = "../index.html";
+});
+
+mobile.addEventListener("click", () => {
+  window.location.href = "./mobile.html";
+});
+
+// addComplain.addEventListener("click", () => {
+//   window.location.href = "./addComplain.html";
+// });
+
+// const display = (lists) => {
+//   const ul = document.getElementById("list");
+
+//   lists.map((list) => {
+//     const li = document.createElement("li");
+
+//     li.innerText = `Title ${list.title}, Complains ${list.desc} `;
+
+//     li.innerHTML += `<a href="https://www.google.com" target="_blank">Google</a>`;
+
+//     ul.appendChild(li);
+//   });
+// };
+
+const display = (item) => {
+  console.log(item);
+
+  const div0 = document.getElementById("values");
+  const div1 = document.createElement("div");
+  div1.className = "excel-row";
+
+  const data = [];
+
+  for (let key in item) {
+    const div2 = document.createElement("div");
+    div2.className = "excel-cell";
+
+    if (key == "title") {
+      div2.innerText = `${item["title"]}`;
+      data[0] = div2;
+    } else if (key == "desc") {
+      div2.innerText = `${item["desc"]}`;
+      data[1] = div2;
+    } else if (key == "link") {
+      const a = document.createElement("a");
+      a.href = `${item["link"]}`;
+      a.textContent = "Link";
+      a.className = "excel-cell";
+      data[2] = a;
+    } else if (key == "StartDate") {
+      div2.innerText = `${item["StartDate"]}`;
+      data[3] = div2;
+    } else if (key == "endDate") {
+      div2.innerText = `${item["endDate"]}`;
+      data[4] = div2;
+    }
+  }
+
+  for (let i = 0; i < 5; i++) {
+    console.log(data[i]);
+    div1.appendChild(data[i]);
+  }
+
+  div0.appendChild(div1);
+};
+
+const initialize = async () => {
+  try {
+    const res = await axios.get("http://localhost:8000/admin/getProduct");
+
+    console.log(res);
+
+    const schemes = res.data.schemes;
+    schemes.map((scheme) => {
+      display(scheme);
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+initialize();

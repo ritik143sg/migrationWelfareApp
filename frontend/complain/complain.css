@@ -1,0 +1,196 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  height: 100vh;
+}
+
+#header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #2c3e50;
+}
+
+#header button {
+  margin-left: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: white;
+  background-color: #3498db;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#header button:hover {
+  background-color: #2980b9;
+}
+
+#mid {
+  height: 300px;
+  padding: 20px;
+  text-align: center;
+  font-size: 24px;
+  background-color: white;
+  margin: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+#footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #34495e;
+  color: white;
+  font-size: 14px;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+/* Navbar Container */
+.navbar {
+  overflow: hidden;
+  background-color: #2c3e50;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  align-items: center;
+  height: 60px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Title or Link */
+.navbar p {
+  color: white;
+  font-size: 18px;
+  padding: 14px 16px;
+  margin: 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.navbar p:hover {
+  background-color: #e74c3c;
+  border-radius: 6px;
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  font-size: 16px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  padding: 14px 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover {
+  background-color: #e74c3c;
+  border-radius: 6px;
+}
+
+/* Dropdown Menu Content */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: #fff;
+  min-width: 180px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Dropdown Items */
+.dropdown-content p {
+  color: #333;
+  padding: 12px 16px;
+  margin: 0;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-content p:hover {
+  background-color: #f1f1f1;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.verified {
+  color: #2ecc71; /* Green */
+  margin-left: 8px;
+}
+
+.not-verified {
+  color: #e74c3c; /* Red */
+  margin-left: 8px;
+}
+#header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #2c3e50;
+}
+
+#header img {
+  margin-right: auto;
+  margin-left: 10px;
+}
+.excel-table {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  height: 100vh;
+  width: 90%;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.excel-row {
+  display: flex;
+  width: 100%;
+}
+
+.excel-cell {
+  border: 1px solid #ccc;
+  padding: 10px;
+  min-width: 120px;
+  text-align: center;
+  background-color: #fff;
+  word-wrap: break-word;
+  flex: 1;
+}
+
+.msg-cell {
+  width: 60%;
+}
+.status-cell {
+  width: 20%;
+}
+.title-cell {
+  width: 20%;
+}
+
+.excel-row.header .excel-cell {
+  background-color: #d9ead3;
+  font-weight: bold;
+  color: #000;
+}
