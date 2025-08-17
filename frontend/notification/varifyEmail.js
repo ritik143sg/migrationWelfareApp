@@ -15,10 +15,10 @@ const handleClick = async (event) => {
 
     console.log(res);
 
-    if (res.data.status == "Success") {
+    if (res.data.msg == "email varified") {
       window.location.href = "./notification.html";
     } else {
-      //alert("Otp expired");
+      alert("Otp expired");
       window.location.href = "./email.html";
     }
   } catch (error) {

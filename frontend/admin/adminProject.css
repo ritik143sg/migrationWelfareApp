@@ -12,6 +12,26 @@ h1 {
   margin-bottom: 30px;
 }
 
+.nav-btn {
+  padding: 16px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+}
+
+.red-btn {
+  background-color: rgb(223, 89, 89);
+}
+.teal-btn {
+  background-color: rgb(89, 223, 212);
+}
+.purple-btn {
+  background-color: rgb(223, 89, 223);
+}
+
 #projectList {
   display: flex;
   flex-wrap: wrap;
@@ -19,48 +39,43 @@ h1 {
   justify-content: center;
 }
 
-/* Organisation container */
-#projectList > div {
+.project-card {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 12px;
   width: 300px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
 }
 
-#projectList > div > h1 {
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-card h2 {
   font-size: 18px;
   text-align: center;
   color: #2980b9;
   margin-bottom: 10px;
 }
 
-ul {
-  list-style: none;
-  padding: 0;
+.project-card p {
+  margin: 5px 0;
+  font-size: 14px;
 }
 
-li {
-  background-color: #ecf0f1;
-  padding: 10px 12px;
-  border-radius: 8px;
-  margin-bottom: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-button {
+.delete-btn {
   background-color: #e74c3c;
   color: white;
   border: none;
-  padding: 6px 12px;
+  padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 14px;
-  transition: background-color 0.2s ease-in-out;
+  margin-top: 10px;
+  width: 100%;
 }
 
-button:hover {
+.delete-btn:hover {
   background-color: #c0392b;
 }

@@ -74,7 +74,7 @@ const deleteUser = async (req, res) => {
       _id: userId,
     });
 
-    await delUser.save();
+    // await delUser.save();
 
     res.status(200).json({
       msg: "user deleted ",
@@ -88,7 +88,7 @@ const deleteUser = async (req, res) => {
 
 const getAllAdmin = async (req, res) => {
   try {
-    const admin = await Admin.findAll();
+    const admin = await Admin.find();
 
     res.status(200).json({
       msg: "get all admin",
@@ -107,9 +107,9 @@ const deleteAdmin = async (req, res) => {
 
   try {
     const delAdmin = await Admin.deleteOne({
-      id: adminId,
+      _id: adminId,
     });
-    await delAdmin.save();
+    // await delAdmin.save();
     res.status(200).json({
       msg: "admin deleted ",
     });

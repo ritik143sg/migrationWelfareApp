@@ -1,11 +1,11 @@
-const app = document.getElementById("app");
+// const app = document.getElementById("app");
 
 app.addEventListener("click", () => {
   localStorage.clear();
-  window.location.href = "/frontend/index.html";
+  window.location.href = "/index.html";
 });
 
-const logout = document.getElementById("logout");
+//const logout = document.getElementById("logout");
 logout.addEventListener("click", () => {
   localStorage.clear();
 

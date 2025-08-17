@@ -38,7 +38,12 @@ adminRouter.patch(
   checkRole("admin"),
   updateProfile
 );
-adminRouter.delete("/admin/:id", authenticate, checkRole("admin"), deleteAdmin);
+adminRouter.delete(
+  "/delete/:id",
+  authenticate,
+  checkRole("admin"),
+  deleteAdmin
+);
 adminRouter.delete("/user/:id", authenticate, checkRole("admin"), deleteUser);
 
 adminRouter.get(

@@ -1,78 +1,65 @@
 const admintoken = JSON.parse(localStorage.getItem("admintoken"));
 const projectList = document.getElementById("projectList");
 
-const displayProject2 = (lists, div) => {
-  const ul = document.createElement("ul");
+document.getElementById("scheme").addEventListener("click", () => {
+  window.location.href = "./addProject.html";
+});
 
-  lists.map((list) => {
-    const li = document.createElement("li");
-    const button = document.createElement("button");
+document.getElementById("app").addEventListener("click", () => {
+  localStorage.clear();
+  window.location.href = "/frontend/index.html";
+});
 
-    ul.appendChild(li);
-
-    button.innerText = "Delete";
-
-    button.addEventListener("click", async () => {
-      try {
-        const res = await axios.delete(
-          `http://localhost:8000/admin/project/${list.id}`,
-          {
-            headers: {
-              Authorization: `Bearer ${admintoken}`,
-            },
-          }
-        );
-
-        console.log(res);
-        initialize();
-      } catch (error) {
-        console.log(error);
-      }
-    });
-
-    li.innerText = `${list.projectName}`;
-    li.appendChild(button);
-
-    ul.appendChild(li);
-  });
-
-  div.appendChild(ul);
-};
+document.getElementById("logout").addEventListener("click", () => {
+  window.location.href = "./adminLogin.html";
+});
 
 const displayProject = (lists) => {
   projectList.innerHTML = "";
 
-  lists.map(async (list) => {
-    const div = document.createElement("div");
-    const h1 = document.createElement("h1");
-    h1.innerText = `Title :  ${list.title}`;
-    div.appendChild(h1);
-    // try {
-    //   const res = await axios.get(
-    //     `http://localhost:8000/charity/getAllProjects/${list.id}`,
-    //     {
-    //       headers: {
-    //         Authorization: `Bearer ${admintoken}`,
-    //       },
-    //     }
-    //   );
-    //   console.log(res.data);
-    // displayProject2(res.data.Project, div);
-    projectList.appendChild(div);
-    // } catch (error) {
-    //   console.log(error);
-    // }
+  lists.forEach((list) => {
+    const card = document.createElement("div");
+    card.classList.add("project-card");
+
+    card.innerHTML = `
+  <h2>${list.title}</h2>
+  <p><strong>Description:</strong> ${list.desc || "N/A"}</p>
+  <p><strong>Start Date:</strong> ${list.StartDate || "N/A"}</p>
+  <p><strong>End Date:</strong> ${list.endDate || "N/A"}</p>
+  <p><strong>Link:</strong> 
+    ${
+      list.link
+        ? `<a href="${list.link}" target="_blank" rel="noopener noreferrer">${list.link}</a>`
+        : "N/A"
+    }
+  </p>
+  <p><strong>Status:</strong> ${list.status || "N/A"}</p>
+  <button class="delete-btn">Delete</button>
+`;
+
+    card.querySelector(".delete-btn").addEventListener("click", async () => {
+      try {
+        await axios.delete(`http://localhost:8000/admin/project/${list.id}`, {
+          headers: { Authorization: `Bearer ${admintoken}` },
+        });
+        initialize();
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    projectList.appendChild(card);
   });
 };
 
 const initialize = async () => {
   try {
-    const res = await axios.get("http://localhost:8000/admin/getProduct");
-
-    console.log(res.data.scheme);
-    displayProject(res.data.scheme);
+    const res = await axios.get("http://localhost:8000/admin/getProduct", {
+      headers: { Authorization: `Bearer ${admintoken}` },
+    });
+    displayProject(res.data.schemes);
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 

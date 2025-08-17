@@ -1,10 +1,8 @@
 const verify = document.getElementById("verify");
 
-const logout = document.getElementById("logout");
-
-const mobile = document.getElementById("imobile");
-const aadhar = document.getElementById("iaadhar");
-const email = document.getElementById("iemail");
+// const mobile = document.getElementById("imobile");
+// const aadhar = document.getElementById("iaadhar");
+// const email = document.getElementById("iemail");
 
 const complain = document.getElementById("complain");
 
@@ -14,25 +12,25 @@ const profile = document.getElementById("profile");
 
 const img = document.getElementById("img");
 
-const phoneDetails = async () => {
-  try {
-    const userId = JSON.parse(localStorage.getItem("userId"));
+// const phoneDetails = async () => {
+//   try {
+//     const userId = JSON.parse(localStorage.getItem("userId"));
 
-    const res = await axios.get(
-      `http://localhost:8000/varify/checkPhone/${userId}`
-    );
+//     const res = await axios.get(
+//       `http://localhost:8000/varify/checkPhone/${userId}`
+//     );
 
-    console.log(res);
-    if (res.data.status == true) {
-      mobile.className = "fas fa-check-circle verified";
-      email.className = "fas fa-check-circle verified";
-    }
-  } catch (error) {
-    console.log(error);
-  }
-};
+//     console.log(res);
+//     if (res.data.status == true) {
+//       mobile.className = "fas fa-check-circle verified";
+//       email.className = "fas fa-check-circle verified";
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
 
-phoneDetails();
+// phoneDetails();
 
 //mobile.className = "fas fa-check-circle verified";
 
@@ -48,36 +46,38 @@ profile.addEventListener("click", () => {
   window.location.href = "../profile/profile.html";
 });
 
-logout.addEventListener("click", () => {
-  window.location.href = "../index.html";
+const admin = document.getElementById("admin");
+
+admin.addEventListener("click", () => {
+  window.location.href = "../admin/adminLogin.html";
 });
 
-mobile.addEventListener("click", () => {
-  console.log(mobile.className);
+// mobile.addEventListener("click", () => {
+//   console.log(mobile.className);
 
-  if (mobile.className == "fas fa-times-circle not-verified") {
-    window.location.href = "./mobile.html";
-  } else {
-    mobile.className = "fas fa-check-circle verified";
-  }
-});
+//   if (mobile.className == "fas fa-times-circle not-verified") {
+//     window.location.href = "./mobile.html";
+//   } else {
+//     mobile.className = "fas fa-check-circle verified";
+//   }
+// });
 
-email.addEventListener("click", () => {
-  console.log(email.className);
+// email.addEventListener("click", () => {
+//   console.log(email.className);
 
-  if (email.className == "fas fa-times-circle not-verified") {
-    window.location.href = "./email.html";
-  } else {
-    email.className = "fas fa-check-circle verified";
-  }
-});
+//   if (email.className == "fas fa-times-circle not-verified") {
+//     window.location.href = "./email.html";
+//   } else {
+//     email.className = "fas fa-check-circle verified";
+//   }
+// });
 
 complain.addEventListener("click", () => {
   window.location.href = "../complain/complain.html";
 });
 
 const display = (item) => {
-  console.log(item);
+  //console.log(item);
 
   const div0 = document.getElementById("values");
   const div1 = document.createElement("div");
@@ -99,7 +99,7 @@ const display = (item) => {
   }
 
   for (let i = 0; i < 2; i++) {
-    console.log(data[i]);
+    // console.log(data[i]);
     div1.appendChild(data[i]);
   }
 
@@ -110,7 +110,7 @@ const initialize = async () => {
   try {
     const res = await axios.get("http://localhost:8000/admin/getNotification");
 
-    console.log(res);
+    // console.log(res);
 
     const notifications = res.data.notifications;
     notifications.map((notification) => {

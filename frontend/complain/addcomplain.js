@@ -2,8 +2,6 @@ const token = JSON.parse(localStorage.getItem("token"));
 
 const verify = document.getElementById("verify");
 
-const logout = document.getElementById("logout");
-
 const mobile = document.getElementById("mobile");
 
 const complain = document.getElementById("complain");
@@ -20,8 +18,10 @@ profile.addEventListener("click", () => {
   window.location.href = "../profile/profile.html";
 });
 
-logout.addEventListener("click", () => {
-  window.location.href = "../index.html";
+const admin = document.getElementById("admin");
+
+admin.addEventListener("click", () => {
+  window.location.href = "../admin/adminLogin.html";
 });
 
 mobile.addEventListener("click", () => {
@@ -55,6 +55,7 @@ const handleSubmit = async (event) => {
       }
     );
     console.log(res);
+    window.location.href = "./complain.html";
   } catch (error) {
     console.log(error);
   }

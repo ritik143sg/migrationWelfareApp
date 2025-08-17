@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 20px;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
   background-color: #f5f7fa;
   color: #2c3e50;
 }
@@ -15,9 +15,10 @@ h1 {
 
 .container {
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -25,7 +26,7 @@ h1 {
   background-color: #ffffff;
   padding: 20px;
   border-radius: 12px;
-  width: 300px;
+  width: 500px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -55,18 +56,21 @@ button {
   transition: background-color 0.2s ease;
 }
 
-button:first-child {
+#reject,
+#approve {
+  width: 20%;
+}
+
+#approve {
   background-color: #27ae60; /* Approve */
 }
-
-button:first-child:hover {
+#approve {
   background-color: #1e8449;
 }
-
-button:last-child {
+#reject {
   background-color: #e74c3c; /* Reject */
 }
 
-button:last-child:hover {
+#reject {
   background-color: #c0392b;
 }

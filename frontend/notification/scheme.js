@@ -1,10 +1,8 @@
 const verify = document.getElementById("verify");
 
-const logout = document.getElementById("logout");
-
 const addComplain = document.getElementById("addComplain");
 
-const mobile = document.getElementById("mobile");
+// const mobile = document.getElementById("mobile");
 
 const profile = document.getElementById("profile");
 
@@ -18,13 +16,15 @@ profile.addEventListener("click", () => {
   window.location.href = "../profile/profile.html";
 });
 
-logout.addEventListener("click", () => {
-  window.location.href = "../index.html";
+const admin = document.getElementById("admin");
+
+admin.addEventListener("click", () => {
+  window.location.href = "../admin/adminLogin.html";
 });
 
-mobile.addEventListener("click", () => {
-  window.location.href = "./mobile.html";
-});
+// mobile.addEventListener("click", () => {
+//   window.location.href = "./mobile.html";
+// });
 
 // addComplain.addEventListener("click", () => {
 //   window.location.href = "./addComplain.html";

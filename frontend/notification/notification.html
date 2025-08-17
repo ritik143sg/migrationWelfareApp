@@ -13,12 +13,16 @@
   </head>
   <body>
     <div id="header">
-      <img  id="img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMReSB59Fsk34Qok1_a4T-szoGFsCa6eSMvdijthS_oa7E16bm3zZyJ786g-TOShHn1XQ&usqp=CAU" style="width: 40px; height: 40px; border-radius: 15px; " ></img>
+      <img
+        id="img"
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMReSB59Fsk34Qok1_a4T-szoGFsCa6eSMvdijthS_oa7E16bm3zZyJ786g-TOShHn1XQ&usqp=CAU"
+        style="width: 40px; height: 40px; border-radius: 15px"
+      />
       <button id="scheme">Scheme</button>
       <button id="complain">Complains</button>
       <button id="profile">Profile</button>
 
-      <button id="logout">Logout</button>
+      <button id="admin">Admin</button>
 
       <div class="dropdown" style="margin-right: 20px">
         <button class="dropbtn">
@@ -30,7 +34,7 @@
             Mobile <i id="imobile" class="fas fa-times-circle not-verified"></i>
           </p>
           <p id="email" style="display: flex; justify-content: space-between">
-            Email <i  id="iemail" class="fas fa-times-circle not-verified"></i>
+            Email <i id="iemail" class="fas fa-times-circle not-verified"></i>
           </p>
           <p id="aadhar" style="display: flex; justify-content: space-between">
             Aadhar <i id="iaadhar" class="fas fa-times-circle not-verified"></i>
@@ -40,14 +44,19 @@
     </div>
     <div id="mid">
       <div>
-        <h3 style="color: darkslategray; font-family: Arial, sans-serif">
+        <h1
+          style="
+            color: darkslategray;
+            font-family: Arial, sans-serif;
+            text-align: center;
+          "
+        >
           Goverment Notification
-        </h3>
+        </h1>
         <div id="excel-table" class="excel-table">
           <div class="excel-row header">
             <div class="excel-cell title-cell">Title</div>
             <div class="excel-cell msg-cell">Notification</div>
-           
           </div>
           <div id="values"></div>
         </div>
@@ -56,6 +65,7 @@
 
     <div id="footer">All rites reserved by ritik@</div>
   </body>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="notification.js"></script>
+  <script src="../varify.js"></script>
 </html>

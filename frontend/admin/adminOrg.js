@@ -1,15 +1,15 @@
 const admintoken = JSON.parse(localStorage.getItem("admintoken"));
-const pending = document.getElementById("pending");
+//const pending = document.getElementById("pending");
 
-const app = document.getElementById("app");
+//const app = document.getElementById("app");
 
 app.addEventListener("click", () => {
   localStorage.clear();
   window.location.href = "/frontend/index.html";
 });
-const approve = document.getElementById("approve");
+//const approve = document.getElementById("approve");
 
-const logout = document.getElementById("logout");
+//const logout = document.getElementById("logout");
 
 logout.addEventListener("click", () => {
   window.location.href = "./adminLogin.html";
@@ -23,11 +23,18 @@ const displayOrgs = (lists) => {
 
   lists.map((list) => {
     const li = document.createElement("li");
-    li.innerText = `${list.title}`;
+    const p = document.createElement("p");
+
+    p.innerText = `Title: ${list.title}\n Complain: ${list.message}\n phone: ${list.userId.phone}`;
+
+    li.appendChild(p);
 
     if (list.status == "Pending") {
       const button1 = document.createElement("button");
       const button2 = document.createElement("button");
+
+      button1.id = "approve";
+      button2.id = "reject";
 
       // li.innerText = `${list.orgName}`;
       button1.innerText = "Approve";
@@ -77,8 +84,10 @@ const displayOrgs = (lists) => {
       // button1.innerText = "Approve";
       button2.innerText = "Reject";
 
+      li.appendChild(p);
       li.appendChild(button1);
       li.appendChild(button2);
+
       ul[0].appendChild(li);
     } else if (list.status == "Accepted") {
       ul[1].appendChild(li);
@@ -89,6 +98,7 @@ const displayOrgs = (lists) => {
 };
 
 const initialize = async () => {
+  const admintoken = JSON.parse(localStorage.getItem("admintoken"));
   try {
     const res = await axios.get("http://localhost:8000/user/getAllComplains", {
       headers: {
@@ -96,7 +106,7 @@ const initialize = async () => {
       },
     });
 
-    console.log(res.data.complains);
+    console.log(res.data);
 
     displayOrgs(res.data.complains);
   } catch (error) {

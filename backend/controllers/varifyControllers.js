@@ -16,7 +16,7 @@ const client = new twilio(accSid, authtoken);
 const defaultClient = SibApiV3Sdk.ApiClient.instance;
 const apiKey = defaultClient.authentications["api-key"];
 apiKey.apiKey =
-  "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";
+  "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";
 
 const emailVarification = async (req, res) => {
   const user = req.body;
@@ -212,7 +212,7 @@ const checkPhone = async (req, res) => {
 
     res.status(200).json({
       msg: "get phone details",
-      status: flag,
+      otp: otp,
     });
   } catch (error) {
     res.json({ error: error.message });

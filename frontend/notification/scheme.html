@@ -22,7 +22,7 @@
 
       <button id="profile">Profile</button>
 
-      <button id="logout">Logout</button>
+      <button id="admin">Admin</button>
 
       <div class="dropdown" style="margin-right: 20px">
         <button class="dropbtn">
@@ -31,22 +31,28 @@
         </button>
         <div class="dropdown-content">
           <p id="mobile" style="display: flex; justify-content: space-between">
-            Mobile <i class="fas fa-check-circle verified"></i>
+            Mobile <i class="fas fa-times-circle not-verified"></i>
           </p>
           <p id="email" style="display: flex; justify-content: space-between">
             Email <i class="fas fa-times-circle not-verified"></i>
           </p>
           <p id="aadhar" style="display: flex; justify-content: space-between">
-            Aadhar <i class="fas fa-check-circle verified"></i>
+            Aadhar <i class="fas fa-times-circle not-verified"></i>
           </p>
         </div>
       </div>
     </div>
     <div id="mid">
       <div>
-        <h3 style="color: darkslategray; font-family: Arial, sans-serif">
-          Schemes
-        </h3>
+        <h1
+          style="
+            color: darkslategray;
+            font-family: Arial, sans-serif;
+            text-align: center;
+          "
+        >
+          Goverment Schemes
+        </h1>
         <div id="excel-table" class="excel-table">
           <div class="excel-row header">
             <div class="excel-cell">Title</div>
@@ -64,4 +70,5 @@
   </body>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="scheme.js"></script>
+  <script src="../varify.js"></script>
 </html>

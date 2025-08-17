@@ -16,6 +16,7 @@ const displayUsers = (lists) => {
 
     const button = document.createElement("button");
     button.innerText = "View";
+    button.id = "view";
 
     const div = document.createElement("div");
     div.className = "details-box";

@@ -23,7 +23,7 @@ const displayUsers = (lists) => {
     button.addEventListener("click", async () => {
       try {
         const res = await axios.delete(
-          `http://localhost:8000/admin/admin/${list.id}`,
+          `http://localhost:8000/admin/delete/${list._id}`,
           {
             headers: {
               Authorization: `Bearer ${admintoken}`,

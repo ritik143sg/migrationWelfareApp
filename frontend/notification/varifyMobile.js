@@ -15,11 +15,11 @@ const handleClick = async (event) => {
 
     console.log(res);
 
-    if (res.data.status == true) {
-      // window.location.href = "./notification.html";
+    if (res.data.msg == "phone varified") {
+      window.location.href = "./notification.html";
     } else {
       alert("Otp expired");
-      //window.location.href = "./mobile.html";
+      window.location.href = "./mobile.html";
     }
   } catch (error) {
     console.log(error);

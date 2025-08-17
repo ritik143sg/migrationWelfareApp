@@ -1,7 +1,5 @@
 const verify = document.getElementById("verify");
 
-const logout = document.getElementById("logout");
-
 const addComplain = document.getElementById("addComplain");
 
 const mobile = document.getElementById("mobile");
@@ -18,8 +16,10 @@ profile.addEventListener("click", () => {
   window.location.href = "../profile/profile.html";
 });
 
-logout.addEventListener("click", () => {
-  window.location.href = "../index.html";
+const admin = document.getElementById("admin");
+
+admin.addEventListener("click", () => {
+  window.location.href = "../admin/adminLogin.html";
 });
 
 mobile.addEventListener("click", () => {

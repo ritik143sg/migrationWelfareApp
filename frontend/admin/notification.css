@@ -80,3 +80,7 @@ button:hover {
 .hover-trigger:hover .details-box {
   display: block;
 }
+
+#view {
+  background-color: cadetblue;
+}

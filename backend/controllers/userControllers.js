@@ -107,7 +107,7 @@ const updatePassword = async (req, res) => {
       { $set: { password: hashedPassword } }
     );
 
-    await updatedUser.save();
+    // await updatedUser.save();
 
     res.status(200).json({ msg: "Password Updated Successfully" });
   } catch (error) {
@@ -168,7 +168,7 @@ const updateProfile = async (req, res) => {
       }
     );
 
-    await updatedUser.save();
+    // await updatedUser.save();
 
     res.status(200).json({ msg: "User Updated Successfully" });
   } catch (error) {
@@ -200,11 +200,13 @@ const getAllComplains = async (req, res) => {
   const user = req.user;
 
   try {
-    const newComplain = await Complain.find();
+    const complains = await Complain.find()
+      .populate("userId", "phone")
+      .sort({ createdAt: -1 });
 
-    res.status(201).json({
-      msg: "All Complains",
-      complains: newComplain,
+    res.status(200).json({
+      msg: "Got All Complains",
+      complains: complains,
     });
   } catch (error) {
     res.status(500).json({
